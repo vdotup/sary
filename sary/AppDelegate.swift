@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 13, *) {
-            print("ios 13>")
-            // do only pure app launch stuff, not interface stuff
+            //
         } else {
-            print("ios <13")
             self.window = UIWindow()
             let vc = ViewController()
             let nc = UINavigationController(rootViewController: vc)

@@ -20,6 +20,13 @@
 		A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */; };
 		A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */; };
 		A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */; };
+		A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */; };
+		A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */; };
+		A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5327CFC30600AD2FB2 /* banners.json */; };
+		A2B70A5627CFC35500AD2FB2 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5527CFC35500AD2FB2 /* Bundle+.swift */; };
+		A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5827CFC55000AD2FB2 /* catalog.json */; };
+		A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */; };
+		A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,13 @@
 		A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewController.swift; sourceTree = "<group>"; };
+		A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPIResult.swift; sourceTree = "<group>"; };
+		A2B70A5327CFC30600AD2FB2 /* banners.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = banners.json; sourceTree = "<group>"; };
+		A2B70A5527CFC35500AD2FB2 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		A2B70A5827CFC55000AD2FB2 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
+		A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIResult.swift; sourceTree = "<group>"; };
+		A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		A2B70A1027CF7CF200AD2FB2 /* sary */ = {
 			isa = PBXGroup;
 			children = (
+				A2B70A5727CFC4F000AD2FB2 /* Resources */,
 				A2B70A4827CF96FB00AD2FB2 /* ViewControllers */,
 				A2B70A4427CF88F000AD2FB2 /* Models */,
 				A2B70A4127CF85CD00AD2FB2 /* Extensions */,
@@ -141,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */,
+				A2B70A5527CFC35500AD2FB2 /* Bundle+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,6 +164,10 @@
 		A2B70A4427CF88F000AD2FB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */,
+				A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */,
+				A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */,
+				A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +180,15 @@
 				A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A2B70A5727CFC4F000AD2FB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2B70A5327CFC30600AD2FB2 /* banners.json */,
+				A2B70A5827CFC55000AD2FB2 /* catalog.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */,
+				A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */,
 				A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */,
+				A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,13 +329,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */,
 				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
 				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
+				A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */,
+				A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */,
 				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
 				A2B70A1627CF7CF200AD2FB2 /* ViewController.swift in Sources */,
 				A2B70A1227CF7CF200AD2FB2 /* AppDelegate.swift in Sources */,
+				A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */,
 				A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */,
 				A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */,
+				A2B70A5627CFC35500AD2FB2 /* Bundle+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

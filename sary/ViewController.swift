@@ -6,15 +6,31 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UITabBarController, UITabBarControllerDelegate {
+let BANNER_API = "https://staging.sary.co/api/v2.5.1/baskets/76097/banners/"
+let CATALOG_API = "https://staging.sary.co/api/baskets/76097/catalog/"
+
+let headers: HTTPHeaders = [
+    "Device-Type": "ios",
+    "App-Version": "3.1.1.0.0",
+    "Accept-Language": "en",
+    "Authorization": "token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODg2NiwidXNlcl9waG9uZSI6Ijk2NjU2NDk4OTI1MCJ9.VYE28vtnMRLmwBISgvvnhOmPuGueW49ogOhXm5ZqsGU"
+]
+
+class ViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        delegate = self
+        //let banners = Bundle.main.decode(BannerAPIResult.self, from: "banners.json")
+        let catalog = Bundle.main.decode(CatalogAPIResult.self, from: "catalog.json")
+        print(catalog.result)
+
+//        AF.request(BANNER_API, headers: headers).responseDecodable(of: BannerAPIResult.self) { response in
+//            debugPrint(response)
+//        }
         
-        title = "Store"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +51,6 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = [storeTab, ordersTab, accountTab]
     }
     
-    
 }
+
 
