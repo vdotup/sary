@@ -27,6 +27,8 @@
 		A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5827CFC55000AD2FB2 /* catalog.json */; };
 		A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */; };
 		A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */; };
+		A2B70A5F27CFD57B00AD2FB2 /* BannerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */; };
+		A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		A2B70A5827CFC55000AD2FB2 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
 		A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIResult.swift; sourceTree = "<group>"; };
 		A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageViewController.swift; sourceTree = "<group>"; };
+		A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */,
+				A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */,
 				A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */,
 				A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */,
+				A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -337,10 +343,12 @@
 				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
 				A2B70A1627CF7CF200AD2FB2 /* ViewController.swift in Sources */,
 				A2B70A1227CF7CF200AD2FB2 /* AppDelegate.swift in Sources */,
+				A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */,
 				A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */,
 				A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */,
 				A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */,
 				A2B70A5627CFC35500AD2FB2 /* Bundle+.swift in Sources */,
+				A2B70A5F27CFD57B00AD2FB2 /* BannerPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
