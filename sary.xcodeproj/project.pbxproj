@@ -10,12 +10,16 @@
 		A2B70A1227CF7CF200AD2FB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A1127CF7CF200AD2FB2 /* AppDelegate.swift */; };
 		A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A1327CF7CF200AD2FB2 /* SceneDelegate.swift */; };
 		A2B70A1627CF7CF200AD2FB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A1527CF7CF200AD2FB2 /* ViewController.swift */; };
-		A2B70A1927CF7CF200AD2FB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1727CF7CF200AD2FB2 /* Main.storyboard */; };
 		A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */; };
 		A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */; };
 		A2B70A2927CF7CF300AD2FB2 /* saryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A2827CF7CF300AD2FB2 /* saryTests.swift */; };
 		A2B70A3327CF7CF300AD2FB2 /* saryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */; };
 		A2B70A3527CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */; };
+		A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */; };
+		A2B70A4727CF892400AD2FB2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A2B70A4627CF892400AD2FB2 /* Alamofire */; };
+		A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */; };
+		A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */; };
+		A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,6 @@
 		A2B70A1127CF7CF200AD2FB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B70A1327CF7CF200AD2FB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A2B70A1527CF7CF200AD2FB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A2B70A1827CF7CF200AD2FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2B70A1D27CF7CF300AD2FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2B70A1F27CF7CF300AD2FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,10 @@
 		A2B70A2E27CF7CF300AD2FB2 /* saryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITests.swift; sourceTree = "<group>"; };
 		A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabViewController.swift; sourceTree = "<group>"; };
+		A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
+		A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B70A4727CF892400AD2FB2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,10 +107,12 @@
 		A2B70A1027CF7CF200AD2FB2 /* sary */ = {
 			isa = PBXGroup;
 			children = (
+				A2B70A4827CF96FB00AD2FB2 /* ViewControllers */,
+				A2B70A4427CF88F000AD2FB2 /* Models */,
+				A2B70A4127CF85CD00AD2FB2 /* Extensions */,
 				A2B70A1127CF7CF200AD2FB2 /* AppDelegate.swift */,
 				A2B70A1327CF7CF200AD2FB2 /* SceneDelegate.swift */,
 				A2B70A1527CF7CF200AD2FB2 /* ViewController.swift */,
-				A2B70A1727CF7CF200AD2FB2 /* Main.storyboard */,
 				A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */,
 				A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */,
 				A2B70A1F27CF7CF300AD2FB2 /* Info.plist */,
@@ -127,6 +137,31 @@
 			path = saryUITests;
 			sourceTree = "<group>";
 		};
+		A2B70A4127CF85CD00AD2FB2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A2B70A4427CF88F000AD2FB2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2B70A4827CF96FB00AD2FB2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */,
+				A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */,
+				A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +178,9 @@
 			dependencies = (
 			);
 			name = sary;
+			packageProductDependencies = (
+				A2B70A4627CF892400AD2FB2 /* Alamofire */,
+			);
 			productName = sary;
 			productReference = A2B70A0E27CF7CF200AD2FB2 /* sary.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +253,9 @@
 				Base,
 			);
 			mainGroup = A2B70A0527CF7CF200AD2FB2;
+			packageReferences = (
+				A2B70A4527CF892400AD2FB2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A2B70A0F27CF7CF200AD2FB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +274,6 @@
 			files = (
 				A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */,
 				A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */,
-				A2B70A1927CF7CF200AD2FB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
+				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
+				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
 				A2B70A1627CF7CF200AD2FB2 /* ViewController.swift in Sources */,
 				A2B70A1227CF7CF200AD2FB2 /* AppDelegate.swift in Sources */,
 				A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */,
+				A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A2B70A1727CF7CF200AD2FB2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2B70A1827CF7CF200AD2FB2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -422,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,11 +478,12 @@
 				DEVELOPMENT_TEAM = M9AP67F2SC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sary/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +493,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,11 +507,12 @@
 				DEVELOPMENT_TEAM = M9AP67F2SC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sary/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +522,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -604,6 +642,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2B70A4527CF892400AD2FB2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2B70A4627CF892400AD2FB2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2B70A4527CF892400AD2FB2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2B70A0627CF7CF200AD2FB2 /* Project object */;
 }
