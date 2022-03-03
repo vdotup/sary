@@ -23,10 +23,6 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let banners = Bundle.main.decode(BannerAPIResult.self, from: "banners.json")
-        let catalog = Bundle.main.decode(CatalogAPIResult.self, from: "catalog.json")
-        //print(catalog.result)
-
 //        AF.request(BANNER_API, headers: headers).responseDecodable(of: BannerAPIResult.self) { response in
 //            debugPrint(response)
 //        }

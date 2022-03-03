@@ -9,11 +9,13 @@ import UIKit
 
 class StoreTabViewController: UIViewController {
     
+    let viewModel = StoreTabViewModel()
+    
     let items: [CGFloat] = [
-        160, 50, 50, 50, 300, 400, 200, 50
+        160, 105, 200, 50, 300, 400, 200, 50
     ]
     
-    var collectionView: UICollectionView!
+    var tableView: UITableView!
     
     let mainStack: UIStackView = {
         let stack = UIStackView()
@@ -38,12 +40,14 @@ class StoreTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let layout = UICollectionViewFlowLayout()
-        
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BannerCell")
+        tableView.register(DynamicUICell.self, forCellReuseIdentifier: "DynamicUICell")
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .brown
+        //tableView.register(CatalogDynamicUICell.self, forCellWithReuseIdentifier: "CatalogDynamicCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,11 +65,11 @@ class StoreTabViewController: UIViewController {
         
         bannerPageVC = BannerPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         view.addSubview(mainStack)
-        view.addSubview(bannerPageVC.view)
+        //view.addSubview(bannerPageVC.view)
         
         mainStack.addArrangedSubview(searchButton)
-        mainStack.addArrangedSubview(collectionView)
-
+        mainStack.addArrangedSubview(tableView)
+        
         mainStack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                          leading: view.leadingAnchor,
                          bottom: view.bottomAnchor,
@@ -79,7 +83,7 @@ class StoreTabViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        bannerPageVC.view.anchor(width: mainStack.widthAnchor , heightConstant: 160)
+        //bannerPageVC.view.anchor(width: mainStack.widthAnchor , heightConstant: 160)
     }
     
     @objc private func searchButtonAction(sender: UIButton!) {
@@ -90,27 +94,33 @@ class StoreTabViewController: UIViewController {
     
 }
 
-extension StoreTabViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+extension StoreTabViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1 + viewModel.catalog.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell", for: indexPath)
+            cell.selectionStyle = .none
             cell.addSubview(bannerPageVC.view)
+            bannerPageVC.view.fillSuperview()
+            return cell
         } else {
-            cell.backgroundColor = UIColor.blue
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicUICell", for: indexPath) as! DynamicUICell
+            cell.selectionStyle = .none
+            cell.configure(catalog: viewModel.catalog[indexPath.row - 1])
+            return cell
         }
-        cell.clipsToBounds = true
-        return cell
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = items[indexPath.row]
-        return CGSize(width: collectionView.frame.width, height: height)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        items[indexPath.row]
     }
-    
     
 }
+
 
