@@ -12,7 +12,7 @@ class StoreTabViewController: UIViewController {
     let viewModel = StoreTabViewModel()
     
     let items: [CGFloat] = [
-        160, 105, 200, 50, 300, 400, 200, 50
+        160, 100, 500, 50, 300, 400, 200, 50
     ]
     
     var tableView: UITableView!
@@ -43,8 +43,9 @@ class StoreTabViewController: UIViewController {
         tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BannerCell")
-        tableView.register(DynamicUICell.self, forCellReuseIdentifier: "DynamicUICell")
+        tableView.register(BannerCell.self, forCellReuseIdentifier: "BannerCell")
+        tableView.register(SmartCell.self, forCellReuseIdentifier: "SmartCell")
+        tableView.register(GroupCell.self, forCellReuseIdentifier: "GroupCell")
         tableView.separatorColor = .clear
         tableView.backgroundColor = .brown
         //tableView.register(CatalogDynamicUICell.self, forCellWithReuseIdentifier: "CatalogDynamicCell")
@@ -77,9 +78,6 @@ class StoreTabViewController: UIViewController {
         )
         
         searchButton.anchor(top: mainStack.topAnchor, heightConstant: 40)
-        
-        
-        bannerPageVC.didMove(toParent: self)
     }
     
     override func viewWillLayoutSubviews() {
@@ -97,22 +95,38 @@ class StoreTabViewController: UIViewController {
 extension StoreTabViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1 + viewModel.catalog.count
+        1 + 2
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell", for: indexPath)
-            cell.selectionStyle = .none
-            cell.addSubview(bannerPageVC.view)
-            bannerPageVC.view.fillSuperview()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell", for: indexPath) as! BannerCell
+            cell.configure(banners: viewModel.banners)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DynamicUICell", for: indexPath) as! DynamicUICell
-            cell.selectionStyle = .none
-            cell.configure(catalog: viewModel.catalog[indexPath.row - 1])
-            return cell
+            let catalog = viewModel.catalogs[indexPath.row - 1]
+            
+            switch catalog.data_type {
+            case .smart:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SmartCell", for: indexPath) as! SmartCell
+                cell.configure(catalog: catalog)
+                return cell
+                
+            case .group:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
+                cell.configure(catalog: catalog)
+                return cell
+                
+//                let cell = UITableViewCell()
+//                return cell
+            case .banner:
+                
+                print("banner??")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SmartCell", for: indexPath) as! SmartCell
+                cell.configure(catalog: catalog)
+                return cell
+            }
         }
         
     }

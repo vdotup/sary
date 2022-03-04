@@ -10,6 +10,6 @@ import Foundation
 class StoreTabViewModel {
     
     let banners: [Banner] = Bundle.main.decode(BannerAPIResult.self, from: "banners.json").result
-    let catalog: [Catalog] = Bundle.main.decode(CatalogAPIResult.self, from: "catalog.json").result
+    let catalogs: [Catalog] = Bundle.main.decode(CatalogAPIResult.self, from: "catalog.json").result
     
 }

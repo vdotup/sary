@@ -27,15 +27,15 @@
 		A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5827CFC55000AD2FB2 /* catalog.json */; };
 		A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */; };
 		A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */; };
-		A2B70A5F27CFD57B00AD2FB2 /* BannerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */; };
 		A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */; };
 		A2D042E327D08A8B00FD3196 /* StoreTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042E227D08A8B00FD3196 /* StoreTabViewModel.swift */; };
 		A2D042E727D08CCD00FD3196 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042E627D08CCD00FD3196 /* RootCoordinator.swift */; };
-		A2D042EA27D0982000FD3196 /* CatalogDynamicUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042E927D0982000FD3196 /* CatalogDynamicUICell.swift */; };
 		A2D042EC27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042EB27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift */; };
-		A2D042EF27D0EAAD00FD3196 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042EE27D0EAAD00FD3196 /* BannerViewController.swift */; };
-		A2D042F227D0EADC00FD3196 /* DynamicUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F127D0EADC00FD3196 /* DynamicUICell.swift */; };
 		A2D042F427D0EF7400FD3196 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F327D0EF7400FD3196 /* UIImageView+.swift */; };
+		A2D042F627D11BC800FD3196 /* Sari-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A2D042F527D11BC800FD3196 /* Sari-Bold.otf */; };
+		A2D042F827D1C22F00FD3196 /* SmartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F727D1C22F00FD3196 /* SmartCell.swift */; };
+		A2D042FA27D1C4D600FD3196 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F927D1C4D600FD3196 /* GroupCell.swift */; };
+		A2D0433827D20C2A00FD3196 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433727D20C2A00FD3196 /* BannerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,15 +79,15 @@
 		A2B70A5827CFC55000AD2FB2 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
 		A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIResult.swift; sourceTree = "<group>"; };
 		A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
-		A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPageViewController.swift; sourceTree = "<group>"; };
 		A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A2D042E227D08A8B00FD3196 /* StoreTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabViewModel.swift; sourceTree = "<group>"; };
 		A2D042E627D08CCD00FD3196 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
-		A2D042E927D0982000FD3196 /* CatalogDynamicUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDynamicUICell.swift; sourceTree = "<group>"; };
 		A2D042EB27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogGroupCollectionViewController.swift; sourceTree = "<group>"; };
-		A2D042EE27D0EAAD00FD3196 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
-		A2D042F127D0EADC00FD3196 /* DynamicUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicUICell.swift; sourceTree = "<group>"; };
 		A2D042F327D0EF7400FD3196 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		A2D042F527D11BC800FD3196 /* Sari-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sari-Bold.otf"; sourceTree = "<group>"; };
+		A2D042F727D1C22F00FD3196 /* SmartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCell.swift; sourceTree = "<group>"; };
+		A2D042F927D1C4D600FD3196 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		A2D0433727D20C2A00FD3196 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,9 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				A2D042F027D0EAC700FD3196 /* Cells */,
-				A2D042ED27D0EA9500FD3196 /* Banner */,
 				A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */,
-				A2D042E927D0982000FD3196 /* CatalogDynamicUICell.swift */,
 				A2D042EB27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift */,
 				A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */,
 				A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */,
@@ -207,6 +205,7 @@
 		A2B70A5727CFC4F000AD2FB2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A2D042F527D11BC800FD3196 /* Sari-Bold.otf */,
 				A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */,
 				A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */,
 				A2B70A5327CFC30600AD2FB2 /* banners.json */,
@@ -241,19 +240,12 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		A2D042ED27D0EA9500FD3196 /* Banner */ = {
-			isa = PBXGroup;
-			children = (
-				A2D042EE27D0EAAD00FD3196 /* BannerViewController.swift */,
-				A2B70A5E27CFD57B00AD2FB2 /* BannerPageViewController.swift */,
-			);
-			path = Banner;
-			sourceTree = "<group>";
-		};
 		A2D042F027D0EAC700FD3196 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A2D042F127D0EADC00FD3196 /* DynamicUICell.swift */,
+				A2D0433727D20C2A00FD3196 /* BannerCell.swift */,
+				A2D042F927D1C4D600FD3196 /* GroupCell.swift */,
+				A2D042F727D1C22F00FD3196 /* SmartCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -372,6 +364,7 @@
 				A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */,
 				A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */,
 				A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */,
+				A2D042F627D11BC800FD3196 /* Sari-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,27 +389,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D042EA27D0982000FD3196 /* CatalogDynamicUICell.swift in Sources */,
 				A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */,
 				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
-				A2D042EF27D0EAAD00FD3196 /* BannerViewController.swift in Sources */,
 				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
 				A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */,
 				A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */,
 				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
+				A2D042FA27D1C4D600FD3196 /* GroupCell.swift in Sources */,
 				A2B70A1627CF7CF200AD2FB2 /* ViewController.swift in Sources */,
 				A2B70A1227CF7CF200AD2FB2 /* AppDelegate.swift in Sources */,
 				A2D042E727D08CCD00FD3196 /* RootCoordinator.swift in Sources */,
 				A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */,
 				A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */,
-				A2D042F227D0EADC00FD3196 /* DynamicUICell.swift in Sources */,
 				A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */,
+				A2D042F827D1C22F00FD3196 /* SmartCell.swift in Sources */,
 				A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */,
 				A2D042F427D0EF7400FD3196 /* UIImageView+.swift in Sources */,
 				A2D042E327D08A8B00FD3196 /* StoreTabViewModel.swift in Sources */,
 				A2B70A5627CFC35500AD2FB2 /* Bundle+.swift in Sources */,
 				A2D042EC27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift in Sources */,
-				A2B70A5F27CFD57B00AD2FB2 /* BannerPageViewController.swift in Sources */,
+				A2D0433827D20C2A00FD3196 /* BannerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

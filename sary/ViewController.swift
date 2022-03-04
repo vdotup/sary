@@ -23,6 +23,7 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
 //        AF.request(BANNER_API, headers: headers).responseDecodable(of: BannerAPIResult.self) { response in
 //            debugPrint(response)
 //        }

@@ -8,10 +8,16 @@
 import Foundation
 
 struct Catalog: Decodable {
+    
+    enum CatalogType: String, Decodable {
+        case smart
+        case group
+        case banner
+    }
     let id: Int
     let title: String
     let data: [CatalogData]
-    let data_type: String
+    let data_type: CatalogType
     let show_title: Bool
     let ui_type: String
     let row_count: Int

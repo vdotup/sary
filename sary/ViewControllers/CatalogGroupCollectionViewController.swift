@@ -26,6 +26,11 @@ class CatalogGroupCollectionViewController: ViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
@@ -34,6 +39,10 @@ class CatalogGroupCollectionViewController: ViewController {
 extension CatalogGroupCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         10
     }
     
@@ -44,7 +53,11 @@ extension CatalogGroupCollectionViewController: UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170, height: 125)
+        return CGSize(width: 75, height: 75)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 5, left: 0, bottom: 5, right: 0)
     }
     
 }
