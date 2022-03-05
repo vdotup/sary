@@ -1,34 +1,41 @@
 //
-//  GroupCell.swift
+//  DynamicGroupView.swift
 //  sary
 //
-//  Created by Abdurrahman Alfudeghi on 04/03/2022.
+//  Created by Abdurrahman Alfudeghi on 05/03/2022.
 //
 
 import UIKit
 
-class GroupCell: UITableViewCell {
+class DynamicGroupView: UIView {
     
+    var titleLabel: UILabel!
     var collectionView: UICollectionView!
     var images: [UIImageView] = []
+    var rowCount: Int = 2
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.isUserInteractionEnabled = false
-        selectionStyle = .none
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        titleLabel = UILabel()
+        titleLabel.text = "Title"
+        addSubview(titleLabel)
+        
+        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, heightConstant: 20)
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = .white
+        collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .clear
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        contentView.addSubview(collectionView)
-        collectionView.fillSuperview()
+        addSubview(collectionView)
+        collectionView.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
+                              padding: .init(top: 10, left: 0, bottom: 0, right: 0))
     }
     
     required init?(coder: NSCoder) {
@@ -37,14 +44,14 @@ class GroupCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         let h = collectionView.collectionViewLayout.collectionViewContentSize.height
-        print(h)
         collectionView.anchor(heightConstant: h)
     }
     
     public func configure(catalog: Catalog) {
         images.removeAll()
+        rowCount = catalog.row_count
+        titleLabel.text = catalog.title
         let data = catalog.data
         for datum in data {
             let imageView = UIImageView()
@@ -55,7 +62,7 @@ class GroupCell: UITableViewCell {
     
 }
 
-extension GroupCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DynamicGroupView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count
@@ -67,7 +74,6 @@ extension GroupCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let imageView = images[indexPath.row]
         cell.addSubview(imageView)
         imageView.fillSuperview()
-        cell.backgroundColor = .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
         return cell
     }
     
@@ -76,11 +82,8 @@ extension GroupCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(collectionView.frame)
-        print(collectionView.layer.bounds)
-        let itemsPerRow: CGFloat = 4
         let spacing: CGFloat = 10
-        let width = (collectionView.frame.width / itemsPerRow) - spacing
+        let width = (collectionView.frame.width / CGFloat(rowCount)) - spacing
         return .init(width: width, height: width)
     }
     

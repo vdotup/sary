@@ -1,13 +1,13 @@
 //
-//  BannerCell.swift
+//  DynamicBannerView.swift
 //  sary
 //
-//  Created by Abdurrahman Alfudeghi on 04/03/2022.
+//  Created by Abdurrahman Alfudeghi on 05/03/2022.
 //
 
 import UIKit
 
-class BannerCell: UITableViewCell {
+class DynamicBannerView: UIView {
     
     var collectionView: UICollectionView!
     var pageControl: UIPageControl!
@@ -18,10 +18,8 @@ class BannerCell: UITableViewCell {
     var configured: Bool = false
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.isUserInteractionEnabled = false
-        selectionStyle = .none
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -34,34 +32,38 @@ class BannerCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.layer.cornerRadius = 20
+        collectionView.layer.cornerRadius = 30
+        collectionView.backgroundColor = .clear
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        contentView.addSubview(collectionView)
+        
+        addSubview(collectionView)
         collectionView.fillSuperview()
         
-        contentView.addSubview(pageControl)
-        pageControl.anchor(bottom: contentView.bottomAnchor,
-                           centerX: collectionView.centerXAnchor,
+        addSubview(pageControl)
+        pageControl.anchor(bottom: bottomAnchor,
+                           centerX: centerXAnchor,
                            widthConstant: 100,
                            heightConstant: 40,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
-        timer = Timer()
+        anchor(heightConstant: 120)
         
+        timer = Timer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(banners: [Banner]) {
+    func configure(catalog: Catalog) {
         if configured { return }
-        pageControl.numberOfPages = banners.count
+        pageControl.numberOfPages = catalog.data.count
         
-        for banner in banners {
+        for data in catalog.data {
             let imageView = UIImageView()
-            imageView.load(url: URL(string: banner.image)!)
+            imageView.contentMode = .scaleToFill
+            imageView.load(url: URL(string: data.image!)!)
             images.append(imageView)
         }
         
@@ -83,7 +85,7 @@ class BannerCell: UITableViewCell {
     
 }
 
-extension BannerCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DynamicBannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count

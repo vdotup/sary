@@ -1,13 +1,13 @@
 //
-//  BannerCell.swift
+//  BannerView.swift
 //  sary
 //
-//  Created by Abdurrahman Alfudeghi on 04/03/2022.
+//  Created by Abdurrahman Alfudeghi on 05/03/2022.
 //
 
 import UIKit
 
-class BannerCell: UITableViewCell {
+class BannerView: UIView {
     
     var collectionView: UICollectionView!
     var pageControl: UIPageControl!
@@ -18,10 +18,8 @@ class BannerCell: UITableViewCell {
     var configured: Bool = false
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.isUserInteractionEnabled = false
-        selectionStyle = .none
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -35,20 +33,23 @@ class BannerCell: UITableViewCell {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 20
+        collectionView.backgroundColor = .clear
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        contentView.addSubview(collectionView)
+        
+        addSubview(collectionView)
         collectionView.fillSuperview()
         
-        contentView.addSubview(pageControl)
-        pageControl.anchor(bottom: contentView.bottomAnchor,
-                           centerX: collectionView.centerXAnchor,
+        addSubview(pageControl)
+        pageControl.anchor(bottom: bottomAnchor,
+                           centerX: centerXAnchor,
                            widthConstant: 100,
                            heightConstant: 40,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
-        timer = Timer()
+        anchor(heightConstant: 160)
         
+        timer = Timer()
     }
     
     required init?(coder: NSCoder) {
@@ -83,7 +84,7 @@ class BannerCell: UITableViewCell {
     
 }
 
-extension BannerCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count

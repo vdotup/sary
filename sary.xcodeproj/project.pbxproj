@@ -36,6 +36,10 @@
 		A2D042F827D1C22F00FD3196 /* SmartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F727D1C22F00FD3196 /* SmartCell.swift */; };
 		A2D042FA27D1C4D600FD3196 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F927D1C4D600FD3196 /* GroupCell.swift */; };
 		A2D0433827D20C2A00FD3196 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433727D20C2A00FD3196 /* BannerCell.swift */; };
+		A2D0433A27D3827A00FD3196 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433927D3827A00FD3196 /* BannerView.swift */; };
+		A2D0433C27D3882A00FD3196 /* DynamicSmartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */; };
+		A2D0433F27D38DE700FD3196 /* DynamicGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */; };
+		A2D0434127D38DF400FD3196 /* DynamicBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,11 @@
 		A2D042F727D1C22F00FD3196 /* SmartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCell.swift; sourceTree = "<group>"; };
 		A2D042F927D1C4D600FD3196 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		A2D0433727D20C2A00FD3196 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		A2D0433927D3827A00FD3196 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSmartView.swift; sourceTree = "<group>"; };
+		A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupView.swift; sourceTree = "<group>"; };
+		A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicBannerView.swift; sourceTree = "<group>"; };
+		A2D0434327D3A1A100FD3196 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +201,7 @@
 		A2B70A4827CF96FB00AD2FB2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A2D0433D27D38D7200FD3196 /* Views */,
 				A2D042F027D0EAC700FD3196 /* Cells */,
 				A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */,
 				A2D042EB27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift */,
@@ -248,6 +258,25 @@
 				A2D042F727D1C22F00FD3196 /* SmartCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A2D0433D27D38D7200FD3196 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2D0434227D3940000FD3196 /* DynamicUI */,
+				A2D0433927D3827A00FD3196 /* BannerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2D0434227D3940000FD3196 /* DynamicUI */ = {
+			isa = PBXGroup;
+			children = (
+				A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */,
+				A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */,
+				A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */,
+			);
+			path = DynamicUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +368,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = A2B70A0527CF7CF200AD2FB2;
 			packageReferences = (
@@ -389,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D0433C27D3882A00FD3196 /* DynamicSmartView.swift in Sources */,
 				A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */,
 				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
 				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
@@ -403,12 +434,15 @@
 				A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */,
 				A2B70A1427CF7CF200AD2FB2 /* SceneDelegate.swift in Sources */,
 				A2D042F827D1C22F00FD3196 /* SmartCell.swift in Sources */,
+				A2D0433A27D3827A00FD3196 /* BannerView.swift in Sources */,
+				A2D0434127D38DF400FD3196 /* DynamicBannerView.swift in Sources */,
 				A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */,
 				A2D042F427D0EF7400FD3196 /* UIImageView+.swift in Sources */,
 				A2D042E327D08A8B00FD3196 /* StoreTabViewModel.swift in Sources */,
 				A2B70A5627CFC35500AD2FB2 /* Bundle+.swift in Sources */,
 				A2D042EC27D0A15500FD3196 /* CatalogGroupCollectionViewController.swift in Sources */,
 				A2D0433827D20C2A00FD3196 /* BannerCell.swift in Sources */,
+				A2D0433F27D38DE700FD3196 /* DynamicGroupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +483,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A2B70A1D27CF7CF300AD2FB2 /* Base */,
+				A2D0434327D3A1A100FD3196 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -460,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -521,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
