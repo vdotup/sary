@@ -56,6 +56,10 @@ class BannerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     func configure(banners: [Banner]) {
         if configured { return }
         pageControl.numberOfPages = banners.count
@@ -63,6 +67,7 @@ class BannerView: UIView {
         for banner in banners {
             let imageView = UIImageView()
             imageView.load(url: URL(string: banner.image)!)
+            print(imageView.frame)
             images.append(imageView)
         }
         

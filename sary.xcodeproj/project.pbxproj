@@ -40,6 +40,7 @@
 		A2D0433C27D3882A00FD3196 /* DynamicSmartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */; };
 		A2D0433F27D38DE700FD3196 /* DynamicGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */; };
 		A2D0434127D38DF400FD3196 /* DynamicBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */; };
+		A2D0434527D3CB3900FD3196 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0434427D3CB3900FD3196 /* SearchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupView.swift; sourceTree = "<group>"; };
 		A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicBannerView.swift; sourceTree = "<group>"; };
 		A2D0434327D3A1A100FD3196 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A2D0434427D3CB3900FD3196 /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			children = (
 				A2D0434227D3940000FD3196 /* DynamicUI */,
 				A2D0433927D3827A00FD3196 /* BannerView.swift */,
+				A2D0434427D3CB3900FD3196 /* SearchButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
 				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
 				A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */,
+				A2D0434527D3CB3900FD3196 /* SearchButton.swift in Sources */,
 				A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */,
 				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
 				A2D042FA27D1C4D600FD3196 /* GroupCell.swift in Sources */,

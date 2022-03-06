@@ -32,7 +32,7 @@ class DynamicBannerView: UIView {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.layer.cornerRadius = 30
+        collectionView.layer.cornerRadius = 0
         collectionView.backgroundColor = .clear
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -47,7 +47,7 @@ class DynamicBannerView: UIView {
                            heightConstant: 40,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
-        anchor(heightConstant: 120)
+        anchor(heightConstant: 200)
         
         timer = Timer()
     }
@@ -62,7 +62,7 @@ class DynamicBannerView: UIView {
         
         for data in catalog.data {
             let imageView = UIImageView()
-            imageView.contentMode = .scaleToFill
+            imageView.contentMode = .scaleAspectFill
             imageView.load(url: URL(string: data.image!)!)
             images.append(imageView)
         }

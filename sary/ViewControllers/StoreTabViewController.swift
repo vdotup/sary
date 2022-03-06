@@ -11,10 +11,6 @@ class StoreTabViewController: UIViewController {
     
     let viewModel = StoreTabViewModel()
     
-    let items: [CGFloat] = [
-        160, 120, 400, 50, 300, 400, 200, 50
-    ]
-    
     var tableView: UITableView!
     
     let mainStack: UIStackView = {
@@ -48,11 +44,8 @@ class StoreTabViewController: UIViewController {
         return stack
     }()
     
-    let searchButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .purple
-        button.setTitle("Search", for: .normal)
-        button.addTarget(self, action: #selector(searchButtonAction), for: .touchUpInside)
+    let searchButton: SearchButton = {
+        let button = SearchButton()
         return button
     }()
     
@@ -64,44 +57,6 @@ class StoreTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        tableView = UITableView()
-        //        tableView.dataSource = self
-        //        tableView.delegate = self
-        //        tableView.autoresizingMask = [.flexibleHeight]
-        //        tableView.register(BannerCell.self, forCellReuseIdentifier: "BannerCell")
-        //        tableView.register(SmartCell.self, forCellReuseIdentifier: "SmartCell")
-        //        tableView.register(GroupCell.self, forCellReuseIdentifier: "GroupCell")
-        //        tableView.separatorColor = .clear
-        //        tableView.showsVerticalScrollIndicator = false
-        //        tableView.rowHeight = UITableView.automaticDimension
-        //        tableView.estimatedRowHeight = 600
-        //        vstack.addArrangedSubview(statsView)
-        //        vstack.addArrangedSubview(productionView)
-        //        vstack.addArrangedSubview(partnersView)
-        //        vstack.addArrangedSubview(footerView)
-        
-        //                scrollView.anchor(top: view.topAnchor,
-        //                                  leading: view.leadingAnchor,
-        //                                  bottom: view.bottomAnchor,
-        //                                  trailing: view.trailingAnchor
-        //                )
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tabBarController?.navigationItem.title = "Store"
-        
-        // - mainStack
-        // - - searchBar
-        // - - collectionView
-        // - - - banner
-        // - - - catalog
-        // - - - catalog
-        // - - - catalog
-        
         view.addSubview(mainStack)
         
         mainStack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
@@ -109,19 +64,12 @@ class StoreTabViewController: UIViewController {
                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
                          trailing: view.trailingAnchor, padding: .init(top: 0, left: 25, bottom: 0, right: 25)
         )
-        //view.addSubview(bannerPageVC.view)
         
         mainStack.addArrangedSubview(searchButton)
+        searchButton.configure(gesture: UITapGestureRecognizer(target: self, action:  #selector(searchButtonAction)))
         mainStack.addArrangedSubview(scrollView)
-        //mainStack.addArrangedSubview(tableView)
         scrollView.addSubview(container)
         container.addSubview(vstack)
-        
-        vstack.addArrangedSubview(bannerView)
-        
-        
-        
-        searchButton.anchor(top: mainStack.topAnchor, heightConstant: 40)
         
         container.anchor(top: scrollView.topAnchor,
                          leading: scrollView.leadingAnchor,
@@ -136,6 +84,8 @@ class StoreTabViewController: UIViewController {
                       trailing: scrollView.trailingAnchor,
                       width: scrollView.widthAnchor
         )
+        
+        vstack.addArrangedSubview(bannerView)
         
         bannerView.configure(banners: viewModel.banners)
         
@@ -155,14 +105,17 @@ class StoreTabViewController: UIViewController {
                 dynamicBannerView.configure(catalog: catalog)
             }
         }
+        
+        
     }
     
-    override func viewWillLayoutSubviews() {
-        //bannerPageVC.view.anchor(width: mainStack.widthAnchor , heightConstant: 160)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.navigationItem.title = "Store"
     }
     
-    @objc private func searchButtonAction(sender: UIButton!) {
-        print("SEARCH")
+    @objc private func searchButtonAction(sender: UITapGestureRecognizer) {
         let searchVC = SearchViewController()
         navigationController?.pushViewController(searchVC, animated: true)
     }

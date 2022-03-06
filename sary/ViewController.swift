@@ -34,15 +34,15 @@ class ViewController: UITabBarController {
         super.viewWillAppear(animated)
                 
         let storeTab = StoreTabViewController()
-        let storeTabBarItem = UITabBarItem(title: "Store", image: nil, tag: 0)
+        let storeTabBarItem = UITabBarItem(title: "المتجر", image: UIImage(named: "store"), tag: 0)
         storeTab.tabBarItem = storeTabBarItem
         
         let ordersTab = OrdersTabViewController()
-        let ordersTabBarItem = UITabBarItem(title: "Orders", image: nil, tag: 1)
+        let ordersTabBarItem = UITabBarItem(title: "الطلبات", image: UIImage(named: "orders"), tag: 1)
         ordersTab.tabBarItem = ordersTabBarItem
         
         let accountTab = AccountTabViewController()
-        let accountTabBarItem = UITabBarItem(title: "Account", image: nil, tag: 2)
+        let accountTabBarItem = UITabBarItem(title: "صفحتي", image: UIImage(named: "account"), tag: 2)
         accountTab.tabBarItem = accountTabBarItem
         
         viewControllers = [storeTab, ordersTab, accountTab]
