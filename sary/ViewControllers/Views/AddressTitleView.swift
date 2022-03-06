@@ -1,32 +1,32 @@
 //
-//  SearchButton.swift
+//  AddressTitleView.swift
 //  sary
 //
-//  Created by Abdurrahman Alfudeghi on 05/03/2022.
+//  Created by Abdurrahman Alfudeghi on 06/03/2022.
 //
 
+import Foundation
 import UIKit
 
-class SearchButton: UIView {
+class AddressTitleView: UIView {
     
     var icon: UIImageView!
     var label: UILabel!
-    var configured: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        //layer.cornerRadius = frame.height / 2
         
-        icon = UIImageView(image: UIImage(named: "mGlass"))
-        icon.frame = CGRect(x: 0, y: 0, width: 16.7, height: 15)
+        icon = UIImageView(image: UIImage(named: "chevronDown"))
+        icon.frame = CGRect(x: 0, y: 0, width: 10, height: 6)
         addSubview(icon)
         icon.anchor(leading: leadingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
-        
+
         label = UILabel()
-        label.text = "ابحث عن اللي ناقصك"
+        label.text = "بقالة الأمانة"
         addSubview(label)
-        
+
         label.anchor(leading: icon.trailingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
     }
     
@@ -36,14 +36,10 @@ class SearchButton: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        anchor(heightConstant: 40)
+        anchor(heightConstant: 30)
+        anchor(widthConstant: 120)
+        backgroundColor = UIColor(red: 0.961, green: 0.961, blue: 0.961, alpha: 1)
         layer.cornerRadius = frame.height / 2
-    }
-    
-    func configure(gesture: UITapGestureRecognizer) {
-        if configured { return }
-        addGestureRecognizer(gesture)
-        configured = true
     }
     
 }

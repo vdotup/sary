@@ -14,23 +14,24 @@ class BannerView: UIView {
     
     var images: [UIImageView] = []
     var timer: Timer!
-    var counter = 0
-    var configured: Bool = false
+    var infiniteSize: Int = 1000
+    var onlyOnce: Bool = true
     
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(banners: [Banner]) {
+        super.init(frame: .zero)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        pageControl = UIPageControl()
-        pageControl.numberOfPages = 4
+        pageControl = UIPageControl(frame: CGRect(origin: .zero, size: .init(width: 200, height: 50)))
         pageControl.currentPage = 0
+        pageControl.numberOfPages = 4
+        pageControl.isUserInteractionEnabled = false
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 20
         collectionView.backgroundColor = .clear
@@ -43,13 +44,11 @@ class BannerView: UIView {
         addSubview(pageControl)
         pageControl.anchor(bottom: bottomAnchor,
                            centerX: centerXAnchor,
-                           widthConstant: 100,
-                           heightConstant: 40,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
         anchor(heightConstant: 160)
         
-        timer = Timer()
+        self.setup(banners: banners)
     }
     
     required init?(coder: NSCoder) {
@@ -60,48 +59,63 @@ class BannerView: UIView {
         super.layoutSubviews()
     }
     
-    func configure(banners: [Banner]) {
-        if configured { return }
+    func setup(banners: [Banner]) {
         pageControl.numberOfPages = banners.count
         
         for banner in banners {
             let imageView = UIImageView()
             imageView.load(url: URL(string: banner.image)!)
-            print(imageView.frame)
             images.append(imageView)
         }
-        
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
-        }
-        configured = true
     }
     
     @objc func autoScroll() {
-        if pageControl.currentPage == pageControl.numberOfPages - 1 {
-            pageControl.currentPage = 0
-        } else {
-            pageControl.currentPage += 1
-        }
-        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
-        self.collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        guard let currentItemNumber = collectionView.indexPathsForVisibleItems.first?.item  else { return }
+        let nextItemNumber = currentItemNumber + 1
+        let nextIndexPath = IndexPath(item: nextItemNumber, section: 0)
+        collectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
 }
 
 extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        stopTimer()
+    }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        startTimer()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        infiniteSize
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let imageView = images[indexPath.row]
+        let imageView = images[indexPath.item % images.count]
         cell.addSubview(imageView)
         imageView.fillSuperview()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if onlyOnce  {
+            let middleIndex = IndexPath(item: Int (infiniteSize / 2), section: 0)
+            collectionView.scrollToItem(at: middleIndex, at: .centeredHorizontally, animated: false)
+            startTimer()
+            onlyOnce = false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -120,12 +134,18 @@ extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         0
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let x = scrollView.contentOffset.x
-        let w = scrollView.bounds.size.width
-        pageControl.currentPage = Int(ceil(x/w))
-        counter = pageControl.currentPage
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        updatePageControl(scrollView: scrollView)
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updatePageControl(scrollView: scrollView)
+    }
+    
+    func updatePageControl(scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.bounds.size.width)
+        let currentPageNumber = Int(pageNumber) % images.count
+        pageControl.currentPage = currentPageNumber
+    }
     
 }

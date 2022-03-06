@@ -9,12 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let items: [String] = [
-        "item 1",
-        "item 2",
-        "item 3",
-        "item 4"
-    ]
+    let items: [String] = []
     
     var tableView: UITableView!
     
@@ -34,6 +29,13 @@ class SearchViewController: UIViewController {
                          bottom: view.bottomAnchor,
                          trailing: view.trailingAnchor
         )
+            let backBTN = UIBarButtonItem(image: UIImage(named: "store"),
+                                      style: .plain,
+                                      target: navigationController,
+                                      action: #selector(UINavigationController.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backBTN
+        
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

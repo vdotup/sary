@@ -18,7 +18,12 @@ class AccountTabViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.navigationItem.title = "Account"
+        tabBarController?.navigationItem.leftBarButtonItem = nil
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        
+        let titleView = UILabel()
+        
+        tabBarController?.navigationItem.titleView = titleView
     }
  
 }

@@ -18,7 +18,14 @@ class OrdersTabViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.navigationItem.title = "Orders"
+        
+        tabBarController?.navigationItem.leftBarButtonItem = nil
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        
+        let titleView = UILabel()
+        titleView.text = "الطلبات"
+        
+        tabBarController?.navigationItem.titleView = titleView
     }
  
 }

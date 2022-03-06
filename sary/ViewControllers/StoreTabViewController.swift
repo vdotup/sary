@@ -49,10 +49,7 @@ class StoreTabViewController: UIViewController {
         return button
     }()
     
-    let bannerView: BannerView = {
-        let view = BannerView()
-        return view
-    }()
+    var bannerView: BannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +59,7 @@ class StoreTabViewController: UIViewController {
         mainStack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                          leading: view.leadingAnchor,
                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                         trailing: view.trailingAnchor, padding: .init(top: 0, left: 25, bottom: 0, right: 25)
+                         trailing: view.trailingAnchor, padding: .init(top: 10, left: 25, bottom: 0, right: 25)
         )
         
         mainStack.addArrangedSubview(searchButton)
@@ -85,9 +82,8 @@ class StoreTabViewController: UIViewController {
                       width: scrollView.widthAnchor
         )
         
+        bannerView = BannerView(banners: viewModel.banners)
         vstack.addArrangedSubview(bannerView)
-        
-        bannerView.configure(banners: viewModel.banners)
         
         for catalog in viewModel.catalogs {
             switch catalog.data_type {
@@ -100,12 +96,10 @@ class StoreTabViewController: UIViewController {
                 vstack.addArrangedSubview(dynamicGroupView)
                 dynamicGroupView.configure(catalog: catalog)
             case .banner:
-                let dynamicBannerView = DynamicBannerView()
+                let dynamicBannerView = DynamicBannerView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicBannerView)
-                dynamicBannerView.configure(catalog: catalog)
             }
         }
-        
         
     }
     
@@ -113,6 +107,23 @@ class StoreTabViewController: UIViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.navigationItem.title = "Store"
+        
+        let cartButton = UIButton(type: .custom)
+        cartButton.setImage(UIImage(named: "cart"), for: .normal)
+        cartButton.addTarget(self, action: #selector(cartButtonAction), for: .touchUpInside)
+        cartButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        let rightBarButton = UIBarButtonItem(customView: cartButton)
+        
+        let logoButton = UIButton(type: .custom)
+        logoButton.setImage(UIImage(named: "logo"), for: .normal)
+        logoButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        let leftBarButton = UIBarButtonItem(customView: logoButton)
+        
+        let addressTitleView = AddressTitleView()
+        
+        tabBarController?.navigationItem.rightBarButtonItem = rightBarButton
+        tabBarController?.navigationItem.leftBarButtonItem = leftBarButton
+        tabBarController?.navigationItem.titleView = addressTitleView
     }
     
     @objc private func searchButtonAction(sender: UITapGestureRecognizer) {
@@ -120,63 +131,10 @@ class StoreTabViewController: UIViewController {
         navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    @objc private func cartButtonAction() {
+        let alert = UIAlertController(title: "سلة الشراء فارغة", message: "", preferredStyle: .alert)
+        alert.addAction(.init(title: "موافق", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
-
-//extension StoreTabViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        1 + 2
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell", for: indexPath) as! BannerCell
-//            cell.configure(banners: viewModel.banners)
-//            return cell
-//        } else {
-//            let catalog = viewModel.catalogs[indexPath.row - 1]
-//
-//            switch catalog.data_type {
-//            case .smart:
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "SmartCell", for: indexPath) as! SmartCell
-//                cell.configure(catalog: catalog)
-//                return cell
-//
-//            case .group:
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
-//                cell.configure(catalog: catalog)
-//                return cell
-//
-//            case .banner:
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "SmartCell", for: indexPath) as! SmartCell
-//                cell.configure(catalog: catalog)
-//                return cell
-//            }
-//        }
-//
-//    }
-//
-////    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-////        items[indexPath.row]
-////    }
-//
-//    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-//        10
-//    }
-//
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//            return UITableView.automaticDimension
-//        }
-//
-//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//            return UITableView.automaticDimension
-//        }
-//
-//        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//            cell.layoutIfNeeded()
-//        }
-//
-//}
-
-
