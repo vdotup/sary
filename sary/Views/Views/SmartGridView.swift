@@ -1,27 +1,29 @@
 //
-//  SmartCell.swift
+//  SmartGridView.swift
 //  sary
 //
-//  Created by Abdurrahman Alfudeghi on 04/03/2022.
+//  Created by Abdurrahman Alfudeghi on 05/03/2022.
 //
 
 import UIKit
 
-class SmartCell: UITableViewCell {
+class DynamicSmartView: UIView {
     
-    let stack = UIStackView()
-    var items: [SmartGridItemView] = []
+    var stack: UIStackView!
+    var configured: Bool = false
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.isUserInteractionEnabled = false
-        selectionStyle = .none
-     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        stack = UIStackView()
         stack.axis = .horizontal
-        stack.spacing = 5
+        stack.spacing = 20
         stack.alignment = .fill
         stack.distribution = .fillEqually
-        contentView.addSubview(stack)
+        addSubview(stack)
+        stack.fillSuperview()
+        
+        anchor(heightConstant: 200)
     }
     
     required init?(coder: NSCoder) {
@@ -31,24 +33,27 @@ class SmartCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        stack.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor)
-        
-        
+        frame = frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
+
+        let h = stack.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        stack.anchor(heightConstant: h.height)
     }
     
     public func configure(catalog: Catalog) {
+        if configured { return }
         for data in catalog.data {
             let view = SmartGridItemView(frame: .zero)
             view.configure(data: data)
-            items.append(view)
             stack.addArrangedSubview(view)
         }
+        configured = true
     }
 }
 
 class SmartGridItemView: UIView {
     
     var stack: UIStackView!
+    var container: UIView!
     var imageCircleContainer: UIView!
     var imageView: UIImageView!
     var nameLabel: UILabel!
@@ -62,13 +67,19 @@ class SmartGridItemView: UIView {
         stack.alignment = .fill
         stack.distribution = .fill
         
+        container = UIView()
+        container.backgroundColor = .clear
+        
+        
         imageCircleContainer = UIView()
+        imageCircleContainer.backgroundColor = .white
+        
+        container.addSubview(imageCircleContainer)
         
         imageCircleContainer.layer.shadowColor = UIColor.black.cgColor
-        imageCircleContainer.layer.shadowOpacity = 1
+        imageCircleContainer.layer.shadowOpacity = 0.10
         imageCircleContainer.layer.shadowOffset = .zero
-        imageCircleContainer.layer.shadowRadius = 5
-        //imageCircleContainer.layer.masksToBounds = true
+        imageCircleContainer.layer.shadowRadius = 6
         
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -82,7 +93,7 @@ class SmartGridItemView: UIView {
         
         addSubview(stack)
         stack.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-        stack.addArrangedSubview(imageCircleContainer)
+        stack.addArrangedSubview(container)
         stack.addArrangedSubview(nameLabel)
         
     }
@@ -93,14 +104,22 @@ class SmartGridItemView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageCircleContainer.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-        imageCircleContainer.layer.cornerRadius = imageCircleContainer.frame.size.width / 2
+        
+        imageCircleContainer.anchor(
+                                    centerX: container.centerXAnchor,
+                                    centerY: container.centerYAnchor,
+                                    widthConstant: 60,
+                                    heightConstant: 60)
         
         imageView.anchor(top: imageCircleContainer.topAnchor,
                          leading: imageCircleContainer.leadingAnchor,
                          bottom: imageCircleContainer.bottomAnchor,
                          trailing: imageCircleContainer.trailingAnchor,
-                         padding: .init(top: 10, left: 10, bottom: 10, right: 10))
+                         padding: .init(top: 15, left: 15, bottom: 15, right: 15))
+        
+        imageCircleContainer.layer.cornerRadius = 30
+        
+        
     }
     
     func configure(data: CatalogData) {

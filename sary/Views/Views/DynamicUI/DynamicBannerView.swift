@@ -17,7 +17,7 @@ class DynamicBannerView: UIView {
     var infiniteSize: Int = 1000
     var onlyOnce: Bool = true
     
-    required init(catalog: Catalog) {
+    required init(catalog: CatalogViewModel) {
         super.init(frame: .zero)
         
         let layout = UICollectionViewFlowLayout()
@@ -59,7 +59,7 @@ class DynamicBannerView: UIView {
         super.layoutSubviews()
     }
     
-    func setup(catalog: Catalog) {
+    func setup(catalog: CatalogViewModel) {
         pageControl.numberOfPages = catalog.data.count
         
         for data in catalog.data {

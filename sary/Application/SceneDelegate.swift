@@ -10,16 +10,17 @@ import UIKit
 
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var window : UIWindow?
+    
+    //var window : UIWindow?
+    var coordinator: AppCoordinator?
+    
     func scene(_ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions) {
             if let windowScene = scene as? UIWindowScene {
-                self.window = UIWindow(windowScene: windowScene)
-                let vc = ViewController()
-                let nc = UINavigationController(rootViewController: vc)
-                self.window!.rootViewController = nc
-                self.window!.makeKeyAndVisible()
+                let window = UIWindow(windowScene: windowScene)
+                coordinator = AppCoordinator(window: window)
+                coordinator?.start()
             }
     }
 }

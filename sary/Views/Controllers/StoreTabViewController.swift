@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class StoreTabViewController: UIViewController {
     
-    let viewModel = StoreTabViewModel()
-    
-    var tableView: UITableView!
+    let disposeBag = DisposeBag()
+    private var viewModel: StoreTabViewModel!
     
     let mainStack: UIStackView = {
         let stack = UIStackView()
@@ -19,7 +19,6 @@ class StoreTabViewController: UIViewController {
         stack.spacing = 4
         stack.alignment = .fill
         stack.distribution = .fill
-        stack.backgroundColor = .blue
         return stack
     }()
     
@@ -53,6 +52,44 @@ class StoreTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showActivity()
+        
+        viewModel.fetch()
+            .subscribe(onCompleted:  {
+                self.loaded()
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let cartButton = UIButton(type: .custom)
+        cartButton.setImage(UIImage(named: "cart"), for: .normal)
+        cartButton.addTarget(self, action: #selector(cartButtonAction), for: .touchUpInside)
+        cartButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        let rightBarButton = UIBarButtonItem(customView: cartButton)
+        
+        let logoButton = UIButton(type: .custom)
+        logoButton.setImage(UIImage(named: "logo"), for: .normal)
+        logoButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+        let leftBarButton = UIBarButtonItem(customView: logoButton)
+        
+        let addressTitleView = AddressTitleView()
+        
+        tabBarController?.navigationItem.rightBarButtonItem = rightBarButton
+        tabBarController?.navigationItem.leftBarButtonItem = leftBarButton
+        tabBarController?.navigationItem.titleView = addressTitleView
+    }
+    
+    func configure(viewModel: StoreTabViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    func loaded() {
+        hideActivity()
         
         view.addSubview(mainStack)
         
@@ -88,42 +125,19 @@ class StoreTabViewController: UIViewController {
         for catalog in viewModel.catalogs {
             switch catalog.data_type {
             case .smart:
-                let dynamicSmartView = DynamicSmartView()
+                let dynamicSmartView = DynamicSmartView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicSmartView)
-                dynamicSmartView.configure(catalog: catalog)
             case .group:
-                let dynamicGroupView = DynamicGroupView()
+                let dynamicGroupView = DynamicGroupView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicGroupView)
-                dynamicGroupView.configure(catalog: catalog)
             case .banner:
                 let dynamicBannerView = DynamicBannerView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicBannerView)
+            case .sku:
+                let dynamicSmartView = DynamicSmartView(catalog: catalog)
+                vstack.addArrangedSubview(dynamicSmartView)
             }
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tabBarController?.navigationItem.title = "Store"
-        
-        let cartButton = UIButton(type: .custom)
-        cartButton.setImage(UIImage(named: "cart"), for: .normal)
-        cartButton.addTarget(self, action: #selector(cartButtonAction), for: .touchUpInside)
-        cartButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
-        let rightBarButton = UIBarButtonItem(customView: cartButton)
-        
-        let logoButton = UIButton(type: .custom)
-        logoButton.setImage(UIImage(named: "logo"), for: .normal)
-        logoButton.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
-        let leftBarButton = UIBarButtonItem(customView: logoButton)
-        
-        let addressTitleView = AddressTitleView()
-        
-        tabBarController?.navigationItem.rightBarButtonItem = rightBarButton
-        tabBarController?.navigationItem.leftBarButtonItem = leftBarButton
-        tabBarController?.navigationItem.titleView = addressTitleView
     }
     
     @objc private func searchButtonAction(sender: UITapGestureRecognizer) {

@@ -14,11 +14,11 @@ class DynamicGroupView: UIView {
     var images: [UIImageView] = []
     var rowCount: Int = 2
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(catalog: CatalogViewModel) {
+        super.init(frame: .zero)
         
         titleLabel = UILabel()
-        titleLabel.text = "Title"
+        titleLabel.font = UIFont(name: "Almarai-Bold", size: 16)
         addSubview(titleLabel)
         
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, heightConstant: 20)
@@ -36,6 +36,8 @@ class DynamicGroupView: UIView {
         addSubview(collectionView)
         collectionView.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
                               padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+        
+        self.setup(catalog: catalog)
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +50,7 @@ class DynamicGroupView: UIView {
         collectionView.anchor(heightConstant: h)
     }
     
-    public func configure(catalog: Catalog) {
+    public func setup(catalog: CatalogViewModel) {
         images.removeAll()
         rowCount = catalog.row_count
         titleLabel.text = catalog.title

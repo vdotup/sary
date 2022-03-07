@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorColor = .clear
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -29,18 +30,16 @@ class SearchViewController: UIViewController {
                          bottom: view.bottomAnchor,
                          trailing: view.trailingAnchor
         )
-            let backBTN = UIBarButtonItem(image: UIImage(named: "store"),
-                                      style: .plain,
-                                      target: navigationController,
-                                      action: #selector(UINavigationController.popViewController(animated:)))
-        navigationItem.leftBarButtonItem = backBTN
-        
-        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.navigationItem.title = "Orders"
+        tabBarController?.navigationItem.leftBarButtonItem = nil
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        
+        let titleView = UILabel()
+        
+        tabBarController?.navigationItem.titleView = titleView
     }
  
 }

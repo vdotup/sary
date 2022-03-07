@@ -17,10 +17,12 @@ struct Banner: Decodable {
     let start_date: String
     let expiry_date: String
     let image: String
-    let priority: Int
     let photo: String
-    let link: String
+    let promo_code: String?
+    let priority: Int
+    let link: String?
     let level: String
     let is_available: Bool
-    let branch: Int
+    let branches: [String]?
+    var cities: [Int]?
 }

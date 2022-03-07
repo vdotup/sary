@@ -17,7 +17,7 @@ class BannerView: UIView {
     var infiniteSize: Int = 1000
     var onlyOnce: Bool = true
     
-    required init(banners: [Banner]) {
+    required init(banners: [BannerViewModel]) {
         super.init(frame: .zero)
         
         let layout = UICollectionViewFlowLayout()
@@ -59,8 +59,9 @@ class BannerView: UIView {
         super.layoutSubviews()
     }
     
-    func setup(banners: [Banner]) {
+    func setup(banners: [BannerViewModel]) {
         pageControl.numberOfPages = banners.count
+        print(banners.count)
         
         for banner in banners {
             let imageView = UIImageView()

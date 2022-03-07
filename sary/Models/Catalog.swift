@@ -13,9 +13,11 @@ struct Catalog: Decodable {
         case smart
         case group
         case banner
+        case sku
     }
     let id: Int
-    let title: String
+    let title: String?
+    let subtitle: String?
     let data: [CatalogData]
     let data_type: CatalogType
     let show_title: Bool

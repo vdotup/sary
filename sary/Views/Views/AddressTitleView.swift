@@ -25,6 +25,7 @@ class AddressTitleView: UIView {
 
         label = UILabel()
         label.text = "بقالة الأمانة"
+        label.font = UIFont(name: "Almarai-Bold", size: 14)
         addSubview(label)
 
         label.anchor(leading: icon.trailingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))

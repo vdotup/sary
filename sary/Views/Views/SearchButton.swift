@@ -25,6 +25,7 @@ class SearchButton: UIView {
         
         label = UILabel()
         label.text = "ابحث عن اللي ناقصك"
+        label.font = UIFont(name: "Almarai-Regular", size: 14)
         addSubview(label)
         
         label.anchor(leading: icon.trailingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))

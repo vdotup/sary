@@ -10,18 +10,25 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window : UIWindow?
+    //var window : UIWindow?
+    var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UITabBar.appearance().tintColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.251, green: 0.251, blue: 0.251, alpha: 0.25)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Almarai-Bold", size: 12)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Almarai-Bold", size: 12)!], for: .selected)
+        
         if #available(iOS 13, *) {
             //
         } else {
-            self.window = UIWindow()
-            let vc = ViewController()
-            let nc = UINavigationController(rootViewController: vc)
-            self.window!.rootViewController = nc
-            self.window!.makeKeyAndVisible()
+            let window = UIWindow()
+            
+            coordinator = AppCoordinator(window: window)
+            coordinator?.start()
+            
         }
         return true
     }
