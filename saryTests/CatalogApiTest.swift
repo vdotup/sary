@@ -23,10 +23,9 @@ class CatalogApiTest: XCTestCase {
         
         let exp = expectation(description: "api")
         
-        catalogService.test_fetch().subscribe { data in
-            XCTAssertNotNil(self.catalogService.response)
-            let response = self.catalogService.response
-            XCTAssertTrue(response!.status)
+        catalogService.test_fetch().subscribe { value in
+            guard let response = value.element else { return }
+            XCTAssertNil(response.error)
             exp.fulfill()
         }.disposed(by: disposeBag)
         
@@ -34,7 +33,6 @@ class CatalogApiTest: XCTestCase {
     }
     
     func test_with_bad_headers_url() {
-        // should timeout
         let exp = expectation(description: "api")
         
         let headers: HTTPHeaders = [
@@ -44,10 +42,9 @@ class CatalogApiTest: XCTestCase {
             "Platform": "FLAGSHIP"
         ]
         
-        catalogService.test_fetch(headers: headers).subscribe { data in
-            XCTAssertNotNil(self.catalogService.response)
-            let response = self.catalogService.response
-            XCTAssertTrue(response!.status)
+        catalogService.test_fetch(headers: headers).subscribe { value in
+            guard let response = value.element else { return }
+            XCTAssertNotNil(response.error)
             exp.fulfill()
         }.disposed(by: disposeBag)
         
@@ -58,10 +55,9 @@ class CatalogApiTest: XCTestCase {
         // should timeout
         let exp = expectation(description: "api")
         
-        catalogService.test_fetch(API: "https://staging.sary.to/api/baskets/313817/catalogs/").subscribe { data in
-            XCTAssertNotNil(self.catalogService.response)
-            let response = self.catalogService.response
-            XCTAssertTrue(response!.status)
+        catalogService.test_fetch(API: "https://staging.sary.to/api/baskets/313817/catalogs/").subscribe { value in
+            guard let response = value.element else { return }
+            XCTAssertNotNil(response.error)
             exp.fulfill()
         }.disposed(by: disposeBag)
         

@@ -20,10 +20,6 @@ let API_HEADERS: HTTPHeaders = [
 
 class CatalogsService {
     
-    
-    
-    var response: CatalogResponse!
-    
     func fetch() -> Observable<[Catalog]> {
         return Observable.create { observer -> Disposable in
             
@@ -38,16 +34,14 @@ class CatalogsService {
         }
     }
     
-    func test_fetch(API: String = CATALOG_API, headers: HTTPHeaders = API_HEADERS) -> Observable<[Catalog]> {
+    func test_fetch(API: String = CATALOG_API, headers: HTTPHeaders = API_HEADERS) -> Observable<DataResponse<CatalogResponse, AFError>> {
         return Observable.create { observer -> Disposable in
             
             AF.request(API,
                        method: .get,
                        headers: headers)
             .responseDecodable(of: CatalogResponse.self) { response in
-                guard let apiResult = response.value else { return }
-                self.response = apiResult
-                observer.onNext(apiResult.result)
+                observer.onNext(response)
             }
             return Disposables.create { }
         }

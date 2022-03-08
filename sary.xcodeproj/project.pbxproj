@@ -26,7 +26,6 @@
 		A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */; };
 		A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */; };
 		A2B70A3327CF7CF300AD2FB2 /* saryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */; };
-		A2B70A3527CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */; };
 		A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */; };
 		A2B70A4727CF892400AD2FB2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A2B70A4627CF892400AD2FB2 /* Alamofire */; };
 		A2B70A4A27CF979B00AD2FB2 /* StoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */; };
@@ -86,7 +85,6 @@
 		A2B70A2427CF7CF300AD2FB2 /* saryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B70A2E27CF7CF300AD2FB2 /* saryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITests.swift; sourceTree = "<group>"; };
-		A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		A2B70A4927CF979B00AD2FB2 /* StoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */,
-				A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */,
 			);
 			path = saryUITests;
 			sourceTree = "<group>";
@@ -487,7 +484,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B70A3327CF7CF300AD2FB2 /* saryUITests.swift in Sources */,
-				A2B70A3527CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,8 +646,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Sary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,8 +676,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Sary;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
