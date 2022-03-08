@@ -9,20 +9,25 @@ import UIKit
 
 class DynamicSmartView: UIView {
     
+    var container: UIView!
     var stack: UIStackView!
     var configured: Bool = false
     
     required init(catalog: CatalogViewModel) {
         super.init(frame: .zero)
         
+        container = UIView()
+        addSubview(container)
+        container.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
+                         padding: .init(top: 0, left: 25, bottom: 0, right: 25))
+        
         stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 20
         stack.alignment = .fill
         stack.distribution = .fillEqually
-        addSubview(stack)
+        container.addSubview(stack)
         stack.fillSuperview()
-        
         self.setup(catalog: catalog)
     }
     
@@ -100,10 +105,10 @@ class SmartGridItemView: UIView {
         super.layoutSubviews()
         
         imageCircleContainer.anchor(
-                                    centerX: container.centerXAnchor,
-                                    centerY: container.centerYAnchor,
-                                    widthConstant: 60,
-                                    heightConstant: 60)
+            centerX: container.centerXAnchor,
+            centerY: container.centerYAnchor,
+            widthConstant: 60,
+            heightConstant: 60)
         
         imageView.anchor(top: imageCircleContainer.topAnchor,
                          leading: imageCircleContainer.leadingAnchor,

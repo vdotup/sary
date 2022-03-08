@@ -1,5 +1,5 @@
 //
-//  BannerAPIResult.swift
+//  BannerResponse.swift
 //  sary
 //
 //  Created by Abdurrahman Alfudeghi on 02/03/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BannerAPIResult: Decodable {
+struct BannerResponse: Decodable {
     let result: [Banner]
     let status: Bool
 }

@@ -28,7 +28,7 @@ class BannersService: BannersServiceProtocol {
     func fetch() -> Observable<[Banner]> {
         return Observable.create { observer -> Disposable in
             
-            AF.request(self.BANNERS_API, method: .get, headers: self.headers).responseDecodable(of: BannerAPIResult.self) { response in
+            AF.request(self.BANNERS_API, method: .get, headers: self.headers).responseDecodable(of: BannerResponse.self) { response in
                 guard let apiResult = response.value else { return }
                 observer.onNext(apiResult.result)
             }

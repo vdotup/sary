@@ -9,16 +9,24 @@ import UIKit
 
 class BannerView: UIView {
     
+    var container: UIView!
     var collectionView: UICollectionView!
     var pageControl: UIPageControl!
     
     var images: [UIImageView] = []
     var timer: Timer!
-    var infiniteSize: Int = 1000
+    var infiniteSize: Int = 2000
     var onlyOnce: Bool = true
+    
+    let dummy = ["https://devcdn.sary.co/banners/2020/09/11/June_Banners-02.png",
+                 "https://devcdn.sary.co/phAA.png"]
     
     required init(banners: [BannerViewModel]) {
         super.init(frame: .zero)
+        
+        container = UIView()
+        addSubview(container)
+        container.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 25, bottom: 0, right: 25))
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -38,12 +46,12 @@ class BannerView: UIView {
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
-        addSubview(collectionView)
+        container.addSubview(collectionView)
         collectionView.fillSuperview()
         
-        addSubview(pageControl)
-        pageControl.anchor(bottom: bottomAnchor,
-                           centerX: centerXAnchor,
+        container.addSubview(pageControl)
+        pageControl.anchor(bottom: container.bottomAnchor,
+                           centerX: container.centerXAnchor,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
         anchor(heightConstant: 160)
@@ -60,9 +68,15 @@ class BannerView: UIView {
     }
     
     func setup(banners: [BannerViewModel]) {
-        pageControl.numberOfPages = banners.count
-        print(banners.count)
-        
+        if dummy.count == 2 {
+            for img in dummy {
+                let imageView = UIImageView()
+                imageView.load(url: URL(string: img)!)
+                images.append(imageView)
+            }
+        }
+        pageControl.numberOfPages = images.count
+        return
         for banner in banners {
             let imageView = UIImageView()
             imageView.load(url: URL(string: banner.image)!)
@@ -112,8 +126,8 @@ extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if onlyOnce  {
-            let middleIndex = IndexPath(item: Int (infiniteSize / 2), section: 0)
-            collectionView.scrollToItem(at: middleIndex, at: .centeredHorizontally, animated: false)
+            let middleIndex = images.count == 2 ? IndexPath(item: 0, section: 0) : IndexPath(item: Int (infiniteSize / 2), section: 0)
+            collectionView.scrollToItem(at: middleIndex, at: .left, animated: false)
             startTimer()
             onlyOnce = false
         }

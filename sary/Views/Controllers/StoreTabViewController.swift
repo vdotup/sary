@@ -43,11 +43,7 @@ class StoreTabViewController: UIViewController {
         return stack
     }()
     
-    let searchButton: SearchButton = {
-        let button = SearchButton()
-        return button
-    }()
-    
+    var searchButton: SearchButton!
     var bannerView: BannerView!
     
     override func viewDidLoad() {
@@ -57,6 +53,7 @@ class StoreTabViewController: UIViewController {
         
         viewModel.fetch()
             .subscribe(onCompleted:  {
+                print("loaded")
                 self.loaded()
             })
             .disposed(by: disposeBag)
@@ -96,11 +93,12 @@ class StoreTabViewController: UIViewController {
         mainStack.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                          leading: view.leadingAnchor,
                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                         trailing: view.trailingAnchor, padding: .init(top: 10, left: 25, bottom: 0, right: 25)
+                         trailing: view.trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0)
         )
         
+        searchButton = SearchButton(gesture: UITapGestureRecognizer(target: self, action:  #selector(searchButtonAction)))
+        
         mainStack.addArrangedSubview(searchButton)
-        searchButton.configure(gesture: UITapGestureRecognizer(target: self, action:  #selector(searchButtonAction)))
         mainStack.addArrangedSubview(scrollView)
         scrollView.addSubview(container)
         container.addSubview(vstack)
@@ -128,14 +126,20 @@ class StoreTabViewController: UIViewController {
                 let dynamicSmartView = DynamicSmartView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicSmartView)
             case .group:
-                let dynamicGroupView = DynamicGroupView(catalog: catalog)
-                vstack.addArrangedSubview(dynamicGroupView)
+                switch catalog.ui_type {
+                case .grid:
+                    let dynamicGroupGridView = DynamicGroupGridView(catalog: catalog)
+                    vstack.addArrangedSubview(dynamicGroupGridView)
+                case .linear:
+                    let dynamicGroupLinearView = DynamicGroupLinearView(catalog: catalog)
+                    vstack.addArrangedSubview(dynamicGroupLinearView)
+                }
+                
             case .banner:
                 let dynamicBannerView = DynamicBannerView(catalog: catalog)
                 vstack.addArrangedSubview(dynamicBannerView)
             case .sku:
-                let dynamicSmartView = DynamicSmartView(catalog: catalog)
-                vstack.addArrangedSubview(dynamicSmartView)
+                continue
             }
         }
     }

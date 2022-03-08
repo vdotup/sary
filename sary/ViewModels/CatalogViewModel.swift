@@ -23,6 +23,10 @@ struct CatalogViewModel {
         return catalog.data_type
     }
     
+    var ui_type: Catalog.CatalogUIType {
+        return catalog.ui_type
+    }
+    
     var row_count: Int {
         return catalog.row_count
     }

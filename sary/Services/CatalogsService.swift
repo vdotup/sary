@@ -27,7 +27,7 @@ class CatalogsService {
             AF.request(self.CATALOG_API,
                        method: .get,
                        headers: self.headers)
-            .responseDecodable(of: CatalogAPIResult.self) { response in
+            .responseDecodable(of: CatalogResponse.self) { response in
                 guard let apiResult = response.value else { return }
                 observer.onNext(apiResult.result)
             }

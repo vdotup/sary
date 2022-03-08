@@ -15,13 +15,19 @@ struct Catalog: Decodable {
         case banner
         case sku
     }
+    
+    enum CatalogUIType: String, Decodable {
+        case grid
+        case linear
+    }
+    
     let id: Int
     let title: String?
     let subtitle: String?
     let data: [CatalogData]
     let data_type: CatalogType
     let show_title: Bool
-    let ui_type: String
+    let ui_type: CatalogUIType
     let row_count: Int
 }
 

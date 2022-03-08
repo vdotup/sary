@@ -9,16 +9,24 @@ import UIKit
 
 class DynamicBannerView: UIView {
     
+    var container: UIView!
     var collectionView: UICollectionView!
     var pageControl: UIPageControl!
     
     var images: [UIImageView] = []
     var timer: Timer!
-    var infiniteSize: Int = 1000
+    var infiniteSize: Int = 2000
     var onlyOnce: Bool = true
+    
+    let dummy = ["https://devcdn.sary.co/banners/2020/09/11/June_Banners-02.png",
+                 "https://devcdn.sary.co/phAA.png"]
     
     required init(catalog: CatalogViewModel) {
         super.init(frame: .zero)
+        
+        container = UIView()
+        addSubview(container)
+        container.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 25, bottom: 0, right: 25))
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -38,12 +46,12 @@ class DynamicBannerView: UIView {
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
-        addSubview(collectionView)
+        container.addSubview(collectionView)
         collectionView.fillSuperview()
         
-        addSubview(pageControl)
-        pageControl.anchor(bottom: bottomAnchor,
-                           centerX: centerXAnchor,
+        container.addSubview(pageControl)
+        pageControl.anchor(bottom: container.bottomAnchor,
+                           centerX: container.centerXAnchor,
                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
         anchor(heightConstant: 160)
@@ -60,17 +68,25 @@ class DynamicBannerView: UIView {
     }
     
     func setup(catalog: CatalogViewModel) {
-        pageControl.numberOfPages = catalog.data.count
-        
-        for data in catalog.data {
+        var imgs: [String] = []
+        if catalog.data.count == 1 {
+            pageControl.numberOfPages = catalog.data.count
             let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFill
-            imageView.load(url: URL(string: data.image!)!)
+            imageView.load(url: URL(string: catalog.data[0].image!)!)
             images.append(imageView)
-        }
-        
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+        } else {
+            pageControl.numberOfPages = catalog.data.count + 2
+            let firstImage = catalog.data[0].image!
+            catalog.data.forEach { imgs.append($0.image!) }
+            imgs.insert(catalog.data.last!.image!, at: 0)
+            imgs.append(firstImage)
+            
+            for img in imgs {
+                let imageView = UIImageView()
+                imageView.contentMode = .scaleToFill
+                imageView.load(url: URL(string: img)!)
+                images.append(imageView)
+            }
         }
     }
     
@@ -102,25 +118,15 @@ extension DynamicBannerView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        infiniteSize
+        images.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let imageView = images[indexPath.item % images.count]
+        let imageView = images[indexPath.row]
         cell.addSubview(imageView)
         imageView.fillSuperview()
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if onlyOnce  {
-            let middleIndex = IndexPath(item: Int (infiniteSize / 2), section: 0)
-            collectionView.scrollToItem(at: middleIndex, at: .centeredHorizontally, animated: false)
-            startTimer()
-            onlyOnce = false
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -148,9 +154,19 @@ extension DynamicBannerView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func updatePageControl(scrollView: UIScrollView) {
-        let pageNumber = round(scrollView.contentOffset.x / scrollView.bounds.size.width)
-        let currentPageNumber = Int(pageNumber) % images.count
-        pageControl.currentPage = currentPageNumber
+        let pageFloat = (scrollView.contentOffset.x / scrollView.bounds.size.width)
+        let pageInt = Int(round(pageFloat))
+        
+        switch pageInt {
+        case 0:
+            collectionView.scrollToItem(at: [0, 3], at: .left, animated: false)
+        case images.count - 1:
+            collectionView.scrollToItem(at: [0, 1], at: .left, animated: false)
+        default:
+            break
+        }
+        
+        pageControl.currentPage = pageInt
     }
     
 }

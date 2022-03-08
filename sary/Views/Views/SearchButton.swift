@@ -9,26 +9,32 @@ import UIKit
 
 class SearchButton: UIView {
     
+    var container: UIView!
     var icon: UIImageView!
     var label: UILabel!
-    var configured: Bool = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(gesture: UITapGestureRecognizer) {
+        super.init(frame: .zero)
         
-        backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        container = UIView()
+        container.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        addSubview(container)
+        container.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
+                         padding: .init(top: 0, left: 25, bottom: 0, right: 25))
+        
         
         icon = UIImageView(image: UIImage(named: "mGlass"))
         icon.frame = CGRect(x: 0, y: 0, width: 16.7, height: 15)
-        addSubview(icon)
-        icon.anchor(leading: leadingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
+        container.addSubview(icon)
+        icon.anchor(leading: container.leadingAnchor, centerY: container.centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
         
         label = UILabel()
         label.text = "ابحث عن اللي ناقصك"
         label.font = UIFont(name: "Almarai-Regular", size: 14)
-        addSubview(label)
+        container.addSubview(label)
+        label.anchor(leading: icon.trailingAnchor, centerY: container.centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
         
-        label.anchor(leading: icon.trailingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
+        setup(gesture: gesture)
     }
     
     required init?(coder: NSCoder) {
@@ -37,14 +43,16 @@ class SearchButton: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        anchor(heightConstant: 40)
-        layer.cornerRadius = frame.height / 2
+        
+        
+        
+        
+        container.anchor(heightConstant: 40)
+        container.layer.cornerRadius = frame.height / 2
     }
     
-    func configure(gesture: UITapGestureRecognizer) {
-        if configured { return }
+    func setup(gesture: UITapGestureRecognizer) {
         addGestureRecognizer(gesture)
-        configured = true
     }
     
 }

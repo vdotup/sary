@@ -1,5 +1,5 @@
 //
-//  DynamicGroupView.swift
+//  DynamicGroupGridView.swift
 //  sary
 //
 //  Created by Abdurrahman Alfudeghi on 05/03/2022.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class DynamicGroupView: UIView {
+class DynamicGroupGridView: UIView {
     
     var titleLabel: UILabel!
     var collectionView: UICollectionView!
     var images: [UIImageView] = []
-    var rowCount: Int = 2
+    var rowCount: Int!
     
     required init(catalog: CatalogViewModel) {
         super.init(frame: .zero)
@@ -21,7 +21,8 @@ class DynamicGroupView: UIView {
         titleLabel.font = UIFont(name: "Almarai-Bold", size: 16)
         addSubview(titleLabel)
         
-        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, heightConstant: 20)
+        titleLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, heightConstant: 20,
+                          padding: .init(top: 15, left: 25, bottom: 0, right: 0))
         
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -35,7 +36,7 @@ class DynamicGroupView: UIView {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         addSubview(collectionView)
         collectionView.anchor(top: titleLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor,
-                              padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+                              padding: .init(top: 20, left: 0, bottom: 0, right: 0))
         
         self.setup(catalog: catalog)
     }
@@ -57,14 +58,15 @@ class DynamicGroupView: UIView {
         let data = catalog.data
         for datum in data {
             let imageView = UIImageView()
-            imageView.load(url: URL(string: datum.image!)!)
+            //imageView.load(url: URL(string: datum.image!)!)
+            imageView.load(url: URL(string: "https://devcdn.sary.co/layout_groups/2020/08/31/%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA.png")!)
             images.append(imageView)
         }
     }
     
 }
 
-extension DynamicGroupView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DynamicGroupGridView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         images.count

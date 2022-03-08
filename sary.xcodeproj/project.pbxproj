@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A2820D3F27D66B4400F37A2E /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2820D3E27D66B4400F37A2E /* TabBarViewModel.swift */; };
+		A2820D4227D74A9000F37A2E /* DynamicGroupLinearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2820D4127D74A8F00F37A2E /* DynamicGroupLinearView.swift */; };
+		A2820D4727D7745000F37A2E /* InfiniteLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A2820D4627D7745000F37A2E /* InfiniteLayout */; };
 		A288A1B027D5243800064E9A /* AddressTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A288A1AF27D5243800064E9A /* AddressTitleView.swift */; };
 		A288A1B227D538D400064E9A /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A288A1B127D538D400064E9A /* Almarai-Bold.ttf */; };
 		A288A1B427D538E000064E9A /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A288A1B327D538E000064E9A /* Almarai-Regular.ttf */; };
@@ -31,10 +33,10 @@
 		A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */; };
 		A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */; };
 		A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */; };
-		A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */; };
+		A2B70A5227CFC16D00AD2FB2 /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5127CFC16D00AD2FB2 /* BannerResponse.swift */; };
 		A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5327CFC30600AD2FB2 /* banners.json */; };
 		A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5827CFC55000AD2FB2 /* catalog.json */; };
-		A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */; };
+		A2B70A5B27CFC58A00AD2FB2 /* CatalogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogResponse.swift */; };
 		A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */; };
 		A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */; };
 		A2D042E327D08A8B00FD3196 /* StoreTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042E227D08A8B00FD3196 /* StoreTabViewModel.swift */; };
@@ -42,7 +44,7 @@
 		A2D042F427D0EF7400FD3196 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D042F327D0EF7400FD3196 /* UIImageView+.swift */; };
 		A2D0433A27D3827A00FD3196 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433927D3827A00FD3196 /* BannerView.swift */; };
 		A2D0433C27D3882A00FD3196 /* DynamicSmartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */; };
-		A2D0433F27D38DE700FD3196 /* DynamicGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */; };
+		A2D0433F27D38DE700FD3196 /* DynamicGroupGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0433E27D38DE700FD3196 /* DynamicGroupGridView.swift */; };
 		A2D0434127D38DF400FD3196 /* DynamicBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */; };
 		A2D0434527D3CB3900FD3196 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D0434427D3CB3900FD3196 /* SearchButton.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		A2820D3E27D66B4400F37A2E /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		A2820D4027D73FA800F37A2E /* catalog-new.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "catalog-new.json"; sourceTree = "<group>"; };
+		A2820D4127D74A8F00F37A2E /* DynamicGroupLinearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupLinearView.swift; sourceTree = "<group>"; };
 		A288A1AF27D5243800064E9A /* AddressTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTitleView.swift; sourceTree = "<group>"; };
 		A288A1B127D538D400064E9A /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		A288A1B327D538E000064E9A /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
@@ -91,10 +95,10 @@
 		A2B70A4B27CF97DF00AD2FB2 /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
-		A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPIResult.swift; sourceTree = "<group>"; };
+		A2B70A5127CFC16D00AD2FB2 /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
 		A2B70A5327CFC30600AD2FB2 /* banners.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = banners.json; sourceTree = "<group>"; };
 		A2B70A5827CFC55000AD2FB2 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
-		A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAPIResult.swift; sourceTree = "<group>"; };
+		A2B70A5A27CFC58A00AD2FB2 /* CatalogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResponse.swift; sourceTree = "<group>"; };
 		A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A2D042E227D08A8B00FD3196 /* StoreTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTabViewModel.swift; sourceTree = "<group>"; };
@@ -102,7 +106,7 @@
 		A2D042F327D0EF7400FD3196 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		A2D0433927D3827A00FD3196 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSmartView.swift; sourceTree = "<group>"; };
-		A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupView.swift; sourceTree = "<group>"; };
+		A2D0433E27D38DE700FD3196 /* DynamicGroupGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupGridView.swift; sourceTree = "<group>"; };
 		A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicBannerView.swift; sourceTree = "<group>"; };
 		A2D0434327D3A1A100FD3196 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A2D0434427D3CB3900FD3196 /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A288A1B727D53E5900064E9A /* RxSwift in Frameworks */,
+				A2820D4727D7745000F37A2E /* InfiniteLayout in Frameworks */,
 				A2B70A4727CF892400AD2FB2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +228,8 @@
 			children = (
 				A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */,
 				A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */,
-				A2B70A5127CFC16D00AD2FB2 /* BannerAPIResult.swift */,
-				A2B70A5A27CFC58A00AD2FB2 /* CatalogAPIResult.swift */,
+				A2B70A5127CFC16D00AD2FB2 /* BannerResponse.swift */,
+				A2B70A5A27CFC58A00AD2FB2 /* CatalogResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */,
 				A2B70A5327CFC30600AD2FB2 /* banners.json */,
 				A2B70A5827CFC55000AD2FB2 /* catalog.json */,
+				A2820D4027D73FA800F37A2E /* catalog-new.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -295,7 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				A2D0433B27D3882A00FD3196 /* DynamicSmartView.swift */,
-				A2D0433E27D38DE700FD3196 /* DynamicGroupView.swift */,
+				A2D0433E27D38DE700FD3196 /* DynamicGroupGridView.swift */,
+				A2820D4127D74A8F00F37A2E /* DynamicGroupLinearView.swift */,
 				A2D0434027D38DF400FD3196 /* DynamicBannerView.swift */,
 			);
 			path = DynamicUI;
@@ -320,6 +327,7 @@
 			packageProductDependencies = (
 				A2B70A4627CF892400AD2FB2 /* Alamofire */,
 				A288A1B627D53E5900064E9A /* RxSwift */,
+				A2820D4627D7745000F37A2E /* InfiniteLayout */,
 			);
 			productName = sary;
 			productReference = A2B70A0E27CF7CF200AD2FB2 /* sary.app */;
@@ -397,6 +405,7 @@
 			packageReferences = (
 				A2B70A4527CF892400AD2FB2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A288A1B527D53E5900064E9A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A2820D4527D7745000F37A2E /* XCRemoteSwiftPackageReference "InfiniteLayout" */,
 			);
 			productRefGroup = A2B70A0F27CF7CF200AD2FB2 /* Products */;
 			projectDirPath = "";
@@ -445,13 +454,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D0433C27D3882A00FD3196 /* DynamicSmartView.swift in Sources */,
-				A2B70A5227CFC16D00AD2FB2 /* BannerAPIResult.swift in Sources */,
+				A2B70A5227CFC16D00AD2FB2 /* BannerResponse.swift in Sources */,
 				A288A1C227D6387E00064E9A /* BannerViewModel.swift in Sources */,
+				A2820D4227D74A9000F37A2E /* DynamicGroupLinearView.swift in Sources */,
 				A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */,
 				A2B70A4C27CF97DF00AD2FB2 /* OrdersTabViewController.swift in Sources */,
 				A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */,
 				A2D0434527D3CB3900FD3196 /* SearchButton.swift in Sources */,
-				A2B70A5B27CFC58A00AD2FB2 /* CatalogAPIResult.swift in Sources */,
+				A2B70A5B27CFC58A00AD2FB2 /* CatalogResponse.swift in Sources */,
 				A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */,
 				A288A1BC27D6072700064E9A /* BannersService.swift in Sources */,
 				A2B70A1627CF7CF200AD2FB2 /* TabBarController.swift in Sources */,
@@ -470,7 +480,7 @@
 				A2D042F427D0EF7400FD3196 /* UIImageView+.swift in Sources */,
 				A288A1BE27D6159400064E9A /* UIViewController+.swift in Sources */,
 				A2D042E327D08A8B00FD3196 /* StoreTabViewModel.swift in Sources */,
-				A2D0433F27D38DE700FD3196 /* DynamicGroupView.swift in Sources */,
+				A2D0433F27D38DE700FD3196 /* DynamicGroupGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +823,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A2820D4527D7745000F37A2E /* XCRemoteSwiftPackageReference "InfiniteLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/arnauddorgans/InfiniteLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.2;
+			};
+		};
 		A288A1B527D53E5900064E9A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -832,6 +850,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A2820D4627D7745000F37A2E /* InfiniteLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2820D4527D7745000F37A2E /* XCRemoteSwiftPackageReference "InfiniteLayout" */;
+			productName = InfiniteLayout;
+		};
 		A288A1B627D53E5900064E9A /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A288A1B527D53E5900064E9A /* XCRemoteSwiftPackageReference "RxSwift" */;
