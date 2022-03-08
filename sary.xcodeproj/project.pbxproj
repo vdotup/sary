@@ -10,6 +10,7 @@
 		A2820D3F27D66B4400F37A2E /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2820D3E27D66B4400F37A2E /* TabBarViewModel.swift */; };
 		A2820D4227D74A9000F37A2E /* DynamicGroupLinearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2820D4127D74A8F00F37A2E /* DynamicGroupLinearView.swift */; };
 		A2820D4727D7745000F37A2E /* InfiniteLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A2820D4627D7745000F37A2E /* InfiniteLayout */; };
+		A2820D4927D7975900F37A2E /* CatalogApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2820D4827D7975900F37A2E /* CatalogApiTest.swift */; };
 		A288A1B027D5243800064E9A /* AddressTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A288A1AF27D5243800064E9A /* AddressTitleView.swift */; };
 		A288A1B227D538D400064E9A /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A288A1B127D538D400064E9A /* Almarai-Bold.ttf */; };
 		A288A1B427D538E000064E9A /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A288A1B327D538E000064E9A /* Almarai-Regular.ttf */; };
@@ -24,7 +25,6 @@
 		A2B70A1627CF7CF200AD2FB2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A1527CF7CF200AD2FB2 /* TabBarController.swift */; };
 		A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */; };
 		A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */; };
-		A2B70A2927CF7CF300AD2FB2 /* saryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A2827CF7CF300AD2FB2 /* saryTests.swift */; };
 		A2B70A3327CF7CF300AD2FB2 /* saryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */; };
 		A2B70A3527CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */; };
 		A2B70A4327CF85DF00AD2FB2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4227CF85DF00AD2FB2 /* UIView+.swift */; };
@@ -34,8 +34,6 @@
 		A2B70A4E27CF980D00AD2FB2 /* AccountTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */; };
 		A2B70A5027CFC12C00AD2FB2 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */; };
 		A2B70A5227CFC16D00AD2FB2 /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5127CFC16D00AD2FB2 /* BannerResponse.swift */; };
-		A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5327CFC30600AD2FB2 /* banners.json */; };
-		A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B70A5827CFC55000AD2FB2 /* catalog.json */; };
 		A2B70A5B27CFC58A00AD2FB2 /* CatalogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5A27CFC58A00AD2FB2 /* CatalogResponse.swift */; };
 		A2B70A5D27CFC61200AD2FB2 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */; };
 		A2B70A6127D02B4600AD2FB2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */; };
@@ -68,8 +66,8 @@
 
 /* Begin PBXFileReference section */
 		A2820D3E27D66B4400F37A2E /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
-		A2820D4027D73FA800F37A2E /* catalog-new.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "catalog-new.json"; sourceTree = "<group>"; };
 		A2820D4127D74A8F00F37A2E /* DynamicGroupLinearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicGroupLinearView.swift; sourceTree = "<group>"; };
+		A2820D4827D7975900F37A2E /* CatalogApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogApiTest.swift; sourceTree = "<group>"; };
 		A288A1AF27D5243800064E9A /* AddressTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTitleView.swift; sourceTree = "<group>"; };
 		A288A1B127D538D400064E9A /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
 		A288A1B327D538E000064E9A /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 		A2B70A1D27CF7CF300AD2FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2B70A1F27CF7CF300AD2FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B70A2427CF7CF300AD2FB2 /* saryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B70A2827CF7CF300AD2FB2 /* saryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryTests.swift; sourceTree = "<group>"; };
 		A2B70A2E27CF7CF300AD2FB2 /* saryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = saryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B70A3227CF7CF300AD2FB2 /* saryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITests.swift; sourceTree = "<group>"; };
 		A2B70A3427CF7CF300AD2FB2 /* saryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saryUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -96,8 +93,6 @@
 		A2B70A4D27CF980D00AD2FB2 /* AccountTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewController.swift; sourceTree = "<group>"; };
 		A2B70A4F27CFC12C00AD2FB2 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		A2B70A5127CFC16D00AD2FB2 /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
-		A2B70A5327CFC30600AD2FB2 /* banners.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = banners.json; sourceTree = "<group>"; };
-		A2B70A5827CFC55000AD2FB2 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
 		A2B70A5A27CFC58A00AD2FB2 /* CatalogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResponse.swift; sourceTree = "<group>"; };
 		A2B70A5C27CFC61200AD2FB2 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		A2B70A6027D02B4600AD2FB2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +194,7 @@
 		A2B70A2727CF7CF300AD2FB2 /* saryTests */ = {
 			isa = PBXGroup;
 			children = (
-				A2B70A2827CF7CF300AD2FB2 /* saryTests.swift */,
+				A2820D4827D7975900F37A2E /* CatalogApiTest.swift */,
 			);
 			path = saryTests;
 			sourceTree = "<group>";
@@ -250,9 +245,6 @@
 				A288A1B127D538D400064E9A /* Almarai-Bold.ttf */,
 				A2B70A1A27CF7CF300AD2FB2 /* Assets.xcassets */,
 				A2B70A1C27CF7CF300AD2FB2 /* LaunchScreen.storyboard */,
-				A2B70A5327CFC30600AD2FB2 /* banners.json */,
-				A2B70A5827CFC55000AD2FB2 /* catalog.json */,
-				A2820D4027D73FA800F37A2E /* catalog-new.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -425,9 +417,7 @@
 			files = (
 				A288A1B427D538E000064E9A /* Almarai-Regular.ttf in Resources */,
 				A2B70A1E27CF7CF300AD2FB2 /* LaunchScreen.storyboard in Resources */,
-				A2B70A5427CFC30600AD2FB2 /* banners.json in Resources */,
 				A2B70A1B27CF7CF300AD2FB2 /* Assets.xcassets in Resources */,
-				A2B70A5927CFC55000AD2FB2 /* catalog.json in Resources */,
 				A288A1B227D538D400064E9A /* Almarai-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2B70A2927CF7CF300AD2FB2 /* saryTests.swift in Sources */,
+				A2820D4927D7975900F37A2E /* CatalogApiTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
